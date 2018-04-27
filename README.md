@@ -24,7 +24,7 @@ Tha main page displays posts of the user "John". Posts are downloaded from the b
 1.  Create a component `PostComponent`.
 2.  Use a created component to displays posts.
 3.  Use input decorator to transmit post data.
-4.  Displays the post information (id, title, author) and create CSS styles.
+4.  Display the post information (id, title, author) and create CSS styles.
 5.  Handle post selection (click event) by using output decorator.
 6.  Create Comment interface with fields id, body and postId.
 7.  When a user selects a post, download the comments associated with it from the backend ('/api/comments?postId=x', where 'x' is post id).
