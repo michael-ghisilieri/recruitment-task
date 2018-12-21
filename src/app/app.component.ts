@@ -8,7 +8,7 @@ import { ApiService, Post } from './api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Recruitment';
+  title = 'Michael Ghisilieri - Owned Outcomes';
   dataIsAvailable: boolean;
   posts: Post[];
 

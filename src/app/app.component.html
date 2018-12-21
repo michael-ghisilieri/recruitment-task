@@ -3,7 +3,10 @@
 </h1>
 
 <div *ngIf="dataIsAvailable">
-  <div *ngFor="let post of posts">
+  <app-post [postings] = 'posts'></app-post>
+  <!--
+      <div *ngFor="let post of posts">
     {{ post | json}}
   </div>
+  -->
 </div>
