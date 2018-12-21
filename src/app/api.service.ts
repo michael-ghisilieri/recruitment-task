@@ -10,6 +10,12 @@ export interface Post {
   author: string;
 }
 
+export interface Comment {
+  id: number;
+  body: string;
+  postId: number;
+}
+
 @Injectable()
 export class ApiService {
   constructor(private http: HttpClient) {}
