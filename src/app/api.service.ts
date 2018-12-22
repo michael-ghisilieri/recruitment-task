@@ -21,10 +21,14 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getPosts() {
-    return this.http.get<Post[]>(`${BASE_URL}/posts?author=${user}`);
+    return this.http.get<Post[]>(`${BASE_URL}/posts`);
   }
 
   getComments(postId: number) {
     return this.http.get<Comment[]>(`${BASE_URL}/comments?postId=${postId}`);
+  }
+
+  createPost(testPost: Post) {
+    return this.http.post<Post>(`${BASE_URL}/posts`, testPost);
   }
 }

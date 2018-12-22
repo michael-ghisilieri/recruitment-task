@@ -1,3 +1,15 @@
+<h3>Leave Your Own Post</h3>
 <p>
-  form works!
+  To create a post, enter the title along with your name below!
 </p>
+<form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+  <label for="title">Title</label><br />
+  <input formControlName="title"><br />
+  <label for="author">Author</label><br />
+  <input formControlName="author"><br />
+  <button type="submit">Post</button>
+</form>
+
+<div *ngIf="submitted">
+  {{weird}}
+</div>

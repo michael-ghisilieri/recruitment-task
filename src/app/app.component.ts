@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ApiService, Post, Comment } from './api.service';
+import { PostComponent } from './components/post/post.component';
 
 @Component({
   selector: 'app-root',
@@ -13,15 +14,24 @@ export class AppComponent implements OnInit {
   posts: Post[];
   comments: Comment[];
   currentPost: number; // stores ID of current post selection
+  newPost: Post;
+  length: number;
+
+  
 
   constructor(private apiService: ApiService) {
     this.dataIsAvailable = false;
   }
 
   ngOnInit() {
+    this.loadPosts();
+  }
+
+  loadPosts() {
     this.apiService.getPosts().subscribe(posts => {
       this.posts = posts;
       this.dataIsAvailable = true;
+      this.length = posts.length;
     });
   }
 
@@ -37,5 +47,14 @@ export class AppComponent implements OnInit {
     }
 
     console.log('Post ' + this.currentPost + ' clicked');
+  }
+
+  handlePost(formData: Post) {
+    this.apiService.createPost(formData).subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log("Error occured");
+    })
+    this.loadPosts();
   }
 }
