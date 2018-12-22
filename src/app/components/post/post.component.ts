@@ -12,6 +12,7 @@ export class PostComponent implements OnInit {
   //currentPost: number;
 
   @Input() postings: Post[];
+  @Input() comments: Comment[];
   @Input() currentPost: number;
 
   @Output() clickPost: EventEmitter<number> = new EventEmitter();

@@ -1,10 +1,7 @@
 <div style="padding-bottom: 10px" *ngFor="let post of postings">
     <p>{{post.id}}. <span (click)="selectPost(post.id)" class="posting-titles">{{post.title}}</span> by {{post.author}}</p>
     <div *ngIf="currentPost == post.id">
-      <form>
-        <textarea rows="5" cols="50" name="comment" placeholder="Leave a comment here"></textarea>
-        <br />
-        <button type="submit">Comment</button>
-      </form>
+      <h3>Comments for {{post.title}}</h3>
+      <app-comment [comments] = "comments"></app-comment>
     </div>
 </div>

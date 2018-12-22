@@ -3,3 +3,7 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+
+li {
+  list-style: none;
+}
