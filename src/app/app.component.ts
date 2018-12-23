@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ApiService, Post, Comment } from './api.service';
-import { PostComponent } from './components/post/post.component';
 
 @Component({
   selector: 'app-root',
