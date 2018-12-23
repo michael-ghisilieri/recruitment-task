@@ -8,7 +8,7 @@ import { PostComponent } from './components/post/post.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { FormComponent } from './components/form/form.component';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommentComponent,
     FormComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, ReactiveFormsModule],
+  imports: [BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule ],
   providers: [ApiService],
   bootstrap: [AppComponent]
 })
