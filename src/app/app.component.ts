@@ -9,7 +9,7 @@ import { PostComponent } from './components/post/post.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Michael Ghisilieri - Owned Outcomes';
+  title = 'MICHAEL GHISILIERI - OWNED OUTCOMES';
   dataIsAvailable: boolean;
   posts: Post[];
   comments: Comment[];

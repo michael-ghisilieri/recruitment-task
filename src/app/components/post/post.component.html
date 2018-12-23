@@ -1,7 +1,7 @@
 <div style="padding-bottom: 10px" *ngFor="let post of postings">
     <p>{{post.id}}. <span (click)="selectPost(post.id)" class="posting-titles">{{post.title}}</span> by {{post.author}}</p>
     <div *ngIf="currentPost == post.id">
-      <h3>Comments for {{post.title}}</h3>
+      <h4 class="comment-title">Comments for {{post.title}}</h4>
       <app-comment [comments] = "comments"></app-comment>
     </div>
 </div>

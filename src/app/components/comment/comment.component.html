@@ -1,6 +1,8 @@
-<div *ngFor="let comment of comments">
-    <ul>
-      <li>{{comment.id}}. {{comment.body}}</li>
-    </ul>
+<div class="container">
+  <div *ngFor="let comment of comments">
+      <ul>
+        <li>{{comment.body}} (comment id: {{comment.id}})</li>
+      </ul>
+  </div>
+  <p *ngIf="comments == ''">There are currently no comments available.</p>
 </div>
-<p *ngIf="comments == ''">There are currently no comments available.</p>
