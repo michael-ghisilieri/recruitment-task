@@ -57,7 +57,6 @@ export class AppComponent implements OnInit {
   }
 
   editPost(formData: Post) {
-    console.log('editPost');
     this.apiService.updatePost(formData).subscribe(res => {
       console.log(res); console.log('udpated');
     }, err => {
