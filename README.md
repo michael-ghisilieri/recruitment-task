@@ -14,8 +14,11 @@
 front-end (recruitment-task folder) - run `npm start` (terminal)
 back-end (json-server folder) - run `json-server db.json --routes routes.json` (terminal)
 
-Description:
-Tha main page displays posts of the user "John". Posts are downloaded from the back-end using method `getPosts`, which is defined in the `api.service.ts` file.
+Description:   
+The main page displays posts that are downloaded from the back-end using `getPosts`, which is defined in the `api.service.ts` file.  
+The title of each post can be clicked on to expand the post which will display downloaded comments using `getComments`.  
+An edit button is available when expanded allowing the user to enter a new title and author. This will call `updatePost` to issue a PUT request updating the post with the matching id.  
+At the bottom of the page, new posts can be created which will call `createPost` and issue a POST request through the `apiService`.
 
 # Tasks:
 
