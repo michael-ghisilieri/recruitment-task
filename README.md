@@ -1,7 +1,7 @@
 # Installation:
 
 1.  Install Node.js depending on the operating system that you use.
-2.  Download front-end repository from https://github.com/adriantoczydlowski/recruitment-task
+2.  Download front-end repository from https://github.com/michael-ghisilieri/recruitment-task
 
 * go to the repository folder and install dependencies `npm install` (terminal).
 
