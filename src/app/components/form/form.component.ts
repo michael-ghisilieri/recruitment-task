@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Post } from '../../api.service';
 
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -11,7 +11,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
   submitted: boolean;
-  postForm: FormGroup;
+  //postForm: FormGroup;
   formData: Post;
   editMode = false;
 
@@ -21,13 +21,14 @@ export class FormComponent implements OnInit {
   @Output() editPost: EventEmitter<Post> = new EventEmitter();
 
   constructor() {
-    this.postForm = this.createFormGroup();
+    //this.postForm = this.createFormGroup();
   }
 
   ngOnInit() {
 
   }
 
+  /*
   createFormGroup() {
     return new FormGroup({
       id: new FormControl(),
@@ -35,6 +36,17 @@ export class FormComponent implements OnInit {
       author: new FormControl()
     })
   }
+  */
+  postForm = new FormGroup({
+    title: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    author: new FormControl('', [Validators.required, Validators.maxLength(30)])
+  });
+
+  editForm = new FormGroup({
+    id: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+    title: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    author: new FormControl('', [Validators.required, Validators.maxLength(30)])
+  });
 
   onSubmit() {
     console.log(this.postForm.value.author + ' just submitted a post');
@@ -45,17 +57,19 @@ export class FormComponent implements OnInit {
       author: this.postForm.value.author
     };
     this.submitPost.emit(this.formData);
+    this.postForm.reset();
   }
 
   onEdit() {
-    console.log(this.postForm.value.author + ' just edited a post');
+    console.log(this.editForm.value.author + ' just edited a post');
     this.submitted = true;
     this.formData = {
-      id: this.postForm.value.id,
-      title: this.postForm.value.title,
-      author: this.postForm.value.author
+      id: this.editForm.value.id,
+      title: this.editForm.value.title,
+      author: this.editForm.value.author
     };
     this.editPost.emit(this.formData);
+    this.editForm.reset();
   }
 
   toggleEdit() {
