@@ -26,52 +26,52 @@ fdescribe('FormComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('postForm invalid when all empty', () => {
-    expect(component.postForm.valid).toBeFalsy();
+  it('form invalid when all empty', () => {
+    expect(component.form.valid).toBeFalsy();
   })
 
   it('empty title invalid', () => {
     let errors = {};
-    let title = component.postForm.controls['title'];
+    let title = component.form.controls['title'];
     errors = title.errors || {};
     // required error being Truthy proves invalid error exist
     expect(errors['required']).toBeTruthy();
   })
 
   it('set title valid', () => {
-    let author = component.postForm.controls['author'];
-    author.setValue("Test Post");
-    let errors = author.errors || {};
+    let title = component.form.controls['title'];
+    title.setValue("Test Name");
+    let errors = title.errors || {};
     // if title is included, no required error given anymore
     expect(errors['required']).toBeFalsy();
   })
 
   it('empty author invalid', () => {
     let errors = {};
-    let author = component.postForm.controls['author'];
+    let author = component.form.controls['author'];
     errors = author.errors || {};
     // required error being Truthy proves invalid error exist
     expect(errors['required']).toBeTruthy();
   })
 
   it('set author valid', () => {
-    let author = component.postForm.controls['author'];
-    author.setValue("Michael");
+    let author = component.form.controls['author'];
+    author.setValue("TestName");
     let errors = author.errors || {};
     // if author is included, no required error given anymore
     expect(errors['required']).toBeFalsy();
   })
 
-  it('postForm valid when filled out', () => {
-    let author = component.postForm.controls['author'];
-    let title = component.postForm.controls['title'];
-    author.setValue("Michael");
-    title.setValue("Test Post");
-    expect(component.postForm.valid).toBeTruthy();
+  it('form valid when filled out', () => {
+    let title = component.form.controls['title'];
+    let author = component.form.controls['author'];
+    title.setValue("Test Title");
+    author.setValue("Test Name");
+    expect(component.form.valid).toBeTruthy();
   })
 
   it('invalid title too long', () => {
-    let title = component.postForm.controls['title'];
+    let title = component.form.controls['title'];
     title.setValue("This title is going to be really really long, too long for this unit test to pass...");
     let errors = title.errors || {};
     // if title is too long, maxlength error will be found
@@ -79,7 +79,7 @@ fdescribe('FormComponent', () => {
   })
 
   it('invalid author too long', () => {
-    let author = component.postForm.controls['author'];
+    let author = component.form.controls['author'];
     author.setValue("This name would be too long to fit into the author field.");
     let errors = author.errors || {};
     // if title is too long, maxlength error will be found

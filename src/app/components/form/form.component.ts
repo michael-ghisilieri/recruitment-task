@@ -28,23 +28,23 @@ export class FormComponent implements OnInit {
     
   }
 
-  postForm = new FormGroup({
+  form = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     author: new FormControl('', [Validators.required, Validators.maxLength(30)])
   });
 
   onSubmit() {
-    console.log(this.postForm.value.author + ' just submitted a post');
+    console.log(this.form.value.author + ' just submitted a post');
     this.formData = {
       id: this.postId || this.postLength + 1,
-      title: this.postForm.value.title,
-      author: this.postForm.value.author
+      title: this.form.value.title,
+      author: this.form.value.author
     };
     if (this.postId) {
       this.editPost.emit(this.formData);
     } else {
       this.submitPost.emit(this.formData);
     }
-    this.postForm.reset();
+    this.form.reset();
   }
 }
