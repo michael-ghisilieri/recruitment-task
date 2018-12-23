@@ -1,15 +1,26 @@
-<h3>Leave Your Own Post</h3>
-<p>
-  To create a post, enter the title along with your name below!
-</p>
-<form [formGroup]="postForm" (ngSubmit)="onSubmit()">
-  <label for="title">Title</label><br />
-  <input formControlName="title"><br />
-  <label for="author">Author</label><br />
-  <input formControlName="author"><br />
-  <button type="submit">Post</button>
-</form>
-
-<div *ngIf="submitted">
-  {{weird}}
+<div *ngIf="!editMode">
+  <h3>Leave Your Own Post</h3>
+  <p>To create a post, enter the title along with your name below!</p>
+  <p>Click <span class="pointer" (click)="toggleEdit()">here</span> if you want to edit a post instead.</p>
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+    <label for="title" x>Title</label><br />
+    <input formControlName="title" size="60"><br />
+    <label for="author">Author</label><br />
+    <input formControlName="author" size="30"><br />
+    <button type="submit">Post</button>
+  </form>
+</div>
+<div *ngIf="editMode">
+  <h3>Edit A Post</h3>
+  <p>Enter the post number along with details you'd like to change!</p>
+  <p>Click <span class="pointer" (click)="toggleEdit()">here</span> to make a new post instead.</p>
+  <form [formGroup]="postForm" (ngSubmit)="onEdit()">
+    <label for="title" x>Title</label><br />
+    <input formControlName="title" size="60"><br />
+    <label for="author">Author</label><br />
+    <input formControlName="author" size="30"><br />
+    <label for="id">Post ID</label><br />
+    <input formControlName="id" size="30"><br />
+    <button type="submit">Edit</button>
+  </form>
 </div>

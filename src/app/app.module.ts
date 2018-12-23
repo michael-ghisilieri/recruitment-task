@@ -16,7 +16,6 @@ import { ReactiveFormsModule } from '@angular/forms'
     PostComponent,
     CommentComponent,
     FormComponent,
-    
   ],
   imports: [BrowserModule, HttpClientModule, ReactiveFormsModule],
   providers: [ApiService],

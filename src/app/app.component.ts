@@ -49,8 +49,17 @@ export class AppComponent implements OnInit {
     console.log('Post ' + this.currentPost + ' clicked');
   }
 
-  handlePost(formData: Post) {
+  submitPost(formData: Post) {
     this.apiService.createPost(formData).subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log("Error occured");
+    })
+    this.loadPosts();
+  }
+
+  editPost(formData: Post) {
+    this.apiService.updatePost(formData).subscribe(res => {
       console.log(res);
     }, err => {
       console.log("Error occured");

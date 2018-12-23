@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const BASE_URL = '/api';
 const user = 'John';
@@ -30,5 +30,13 @@ export class ApiService {
 
   createPost(testPost: Post) {
     return this.http.post<Post>(`${BASE_URL}/posts`, testPost);
+  }
+
+  updatePost(updatedPost: Post) {
+    return this.http.put<Post>(`${BASE_URL}/posts/${updatedPost.id}`, updatedPost, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
   }
 }
