@@ -1,3 +1,7 @@
+.form-container {
+  margin: 10px 0px 40px;
+}
+
 .form-group {
   padding: 5px 0px;
 }
@@ -12,4 +16,13 @@
 
 p {
   margin: 5px 0px;
+}
+
+strong {
+  color: #405077;
+  font-size: 24px;
+}
+
+input {
+  font-size: 20px;
 }

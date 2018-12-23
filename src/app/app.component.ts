@@ -45,8 +45,6 @@ export class AppComponent implements OnInit {
         this.comments = comments;
       })
     }
-
-    console.log('Post ' + this.currentPost + ' clicked');
   }
 
   submitPost(formData: Post) {
@@ -59,8 +57,9 @@ export class AppComponent implements OnInit {
   }
 
   editPost(formData: Post) {
+    console.log('editPost');
     this.apiService.updatePost(formData).subscribe(res => {
-      console.log(res);
+      console.log(res); console.log('udpated');
     }, err => {
       console.log("Error occured");
     })

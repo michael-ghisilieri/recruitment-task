@@ -1,7 +1,4 @@
-<div *ngIf="!editMode">
-  <h3>Leave Your Own Post</h3>
-  <p>To create a post, enter the title along with your name below!</p>
-  <p>Click <span class="pointer" (click)="toggleEdit()">here</span> if you want to edit a post instead.</p>
+<div class="form-container">
   <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <strong><label for="title" x>Title</label></strong><br />
@@ -23,45 +20,6 @@
         Author can only be up to 30 characters long.
       </p>
     </div>
-    <button type="submit" [disabled]="!postForm.valid">Post</button>
-  </form>
-</div>
-
-<div *ngIf="editMode">
-  <h3>Edit A Post</h3>
-  <p>Enter the post number along with details you'd like to change!</p>
-  <p>Click <span class="pointer" (click)="toggleEdit()">here</span> to make a new post instead.</p>
-  <form formGroupName="editForm" (ngSubmit)="onEdit()">
-    <div class="form-group">
-      <strong><label for="title" x>Title</label></strong><br />
-      <input formControlName="title" size="60" required><br />
-      <p class="form-error" *ngIf="editForm.get('title').errors?.required">
-          You must enter a title.
-      </p>
-      <p class="form-error" *ngIf="editForm.get('title').errors?.maxlength">
-        Title can only be up to 50 characters long.
-      </p>
-    </div>
-    <div class="form-group">
-      <strong><label for="author">Author</label></strong><br />
-      <input formControlName="author" size="30" required><br />
-      <p class="form-error" *ngIf="editForm.get('author').errors?.required">
-          You must enter an author.
-      </p>
-      <p class="form-error" *ngIf="editForm.get('author').errors?.maxlength">
-        Title can only be up to 30 characters long.
-      </p>
-    </div>
-    <div class="form-group">
-      <strong><label for="id">Post ID</label></strong><br />
-      <input formControlName="id" size="30" required><br />
-      <p class="form-error" *ngIf="editForm.get('id').errors?.required">
-          ID required to change post.
-      </p>
-      <p class="form-error" *ngIf="editForm.get('id').errors?.pattern">
-          Must be a number.
-      </p>
-    </div>
-    <button type="submit" [disabled]="!editForm.valid">Edit</button>
+    <button type="submit" [disabled]="!postForm.valid">{{editLabel}}</button>
   </form>
 </div>

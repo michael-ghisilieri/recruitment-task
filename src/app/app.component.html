@@ -6,13 +6,9 @@
   <h2>AVAILABLE POSTS</h2>
 
   <div *ngIf="dataIsAvailable">
-    <app-post [comments] = "comments" [postings] = "posts" [currentPost] = "currentPost" (clickPost)="setPost($event)"></app-post>
-    <!--
-        <div *ngFor="let post of posts">
-      {{ post | json}}
-    </div>
-    -->
+    <app-post [comments] = "comments" [postings] = "posts" [currentPost] = "currentPost" (clickPost)="setPost($event)" (editPost)="editPost($event)"></app-post>
   </div>
-
-  <app-form [postLength]="legnth" (submitPost)="submitPost($event)" (editPost)="editPost($event)"></app-form>
+  <h3>Leave Your Own Post</h3>
+  <p>To create a post, enter the title along with your name below!</p>
+  <app-form [postLength]="legnth" (submitPost)="submitPost($event)"></app-form>
 </div>

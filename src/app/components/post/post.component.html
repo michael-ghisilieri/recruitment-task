@@ -1,7 +1,11 @@
-<div style="padding-bottom: 10px" *ngFor="let post of postings">
-    <p>{{post.id}}. <span (click)="selectPost(post.id)" class="posting-titles">{{post.title}}</span> by {{post.author}}</p>
-    <div *ngIf="currentPost == post.id">
-      <h4 class="comment-title">Comments for {{post.title}}</h4>
-      <app-comment [comments] = "comments"></app-comment>
+<div class="post-container" *ngFor="let post of postings">
+  <p>{{post.id}}. <span (click)="selectPost(post.id)" class="post-title">{{post.title}}</span> by <strong>{{post.author}}</strong></p>
+  <div class="pad-left" *ngIf="currentPost == post.id">
+    <h4 class="comment-title">Comments for {{post.title}}</h4>
+    <app-comment [comments] = "comments"></app-comment>
+    <h4 class="edit-btn" (click)="selectEdit()">EDIT</h4>
+    <div *ngIf="showEdit">
+      <app-form class="post-form" [editLabel]="editLabel" [postId]="post.id" (editPost)="passEdit($event)"></app-form>
     </div>
+  </div>
 </div>

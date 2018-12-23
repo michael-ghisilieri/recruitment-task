@@ -1,14 +1,27 @@
-.posting-titles {
-  font-size: 20px;
-  font-weight: 900;
-  cursor: pointer;
-  color: #405077;
+.post-container {
+  background-color: #F5F5F5;
+  margin-bottom: 5px;
+  padding: 0px 20px;
+  border: solid black 1px;
 }
 
-.comment-title {
+.post-title {
+  color: #405077;
+  padding-left: 10px;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.pad-left {
   padding-left: 50px;
 }
 
 li {
   list-style: none;
+}
+
+.edit-btn {
+  margin-bottom: 20px;
+  cursor: pointer;
 }
